@@ -19,12 +19,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-SECRET_KEY = os.getenv('{{ cookiecutter.environment_variables_prefix }}SECRET_KEY', 'insecure-key')
+SECRET_KEY = os.getenv('DJANGOPROJECT_SECRET_KEY', 'insecure-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('{{ cookiecutter.environment_variables_prefix }}DEBUG', 'True') == 'True'
+DEBUG = os.getenv('DJANGOPROJECT_DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.getenv('{{ cookiecutter.environment_variables_prefix }}ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGOPROJECT_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 
 # Application definition
@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = os.getenv('{{ cookiecutter.environment_variables_prefix }}STATIC_ROOT', BASE_DIR / 'staticfiles')
+STATIC_ROOT = os.getenv('DJANGOPROJECT_STATIC_ROOT', BASE_DIR / 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
